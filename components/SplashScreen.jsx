@@ -1,15 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import {
-  Animated,
-  Dimensions,
-  View,
-} from "react-native";
+import { Animated, Dimensions, View } from "react-native";
 
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import Logo from "../assets/EmojiGotchi/icon.png";
 
-import Emoji from "./Emoji";
+import IntroSlider from "./IntroSlider";
 
 const BGColor = "#232E5C";
 
@@ -125,11 +121,8 @@ export default function SplashScreen() {
           transform: [{ translateY: contentTransition }],
         }}
       >
-        <Emoji />
-        
+        <IntroSlider />
       </Animated.View>
     </View>
   );
 }
-
-

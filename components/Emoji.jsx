@@ -12,6 +12,8 @@ import { Dimensions } from "react-native";
 
 import * as Progress from "react-native-progress";
 
+import Fireworks from "./Fireworks";
+
 class Emoji extends React.Component {
   constructor(props) {
     super(props);
@@ -143,9 +145,12 @@ class Emoji extends React.Component {
         </View>
         <View style={styles.parent}>
           <TouchableOpacity style={[styles.submit]} onPress={this.resetCount}>
-            <Text style={[styles.submitText]}>Reset</Text>
+            <Text style={[styles.submitText]}>Respawn</Text>
           </TouchableOpacity>
         </View>
+        {
+           count > 16 ? <Fireworks /> : null
+        }
       </View>
     );
   }
@@ -166,11 +171,9 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   parent: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: "#232E5C",
-    width: "100%",
+    marginTop: 20,
+
   },
   submitText: {
     color: "#fff",
