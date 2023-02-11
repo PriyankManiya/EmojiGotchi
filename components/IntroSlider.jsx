@@ -6,23 +6,27 @@ import Emoji from "./Emoji";
 const slides = [
   {
     key: 1,
-    title: "Title 1",
-    text: "Description.\nSay something cool",
-    image: require("../assets/EmojiGotchi/red.png"),
+    title: "How to save your Emoji Gotchi ??",
+    text1:
+      "Once you'll start the game energy bar will be emptied as time goes by.",
+    text: "You can save your Emoji Gotchi by CLICKING on it.",
+    image: require("../assets/EmojiGotchi/intro/intro-1.png"),
     backgroundColor: "#59b2ab",
   },
   {
     key: 2,
-    title: "Title 2",
-    text: "Other cool stuff",
-    image: require("../assets/EmojiGotchi/green.png"),
+    title: "How about some cool stuff ??",
+    text1: "What if you've got some master button which will fill your energy bar instantly ??",
+    text: "You can get it by Clicking on the Respawn button and you can Make your Emoji Gotchi HAPPY again.",
+    image: require("../assets/EmojiGotchi/intro/intro-2.png"),
     backgroundColor: "#febe29",
   },
   {
     key: 3,
-    title: "Rocket guy",
-    text: "I'm already out of descriptions\n\nLorem ipsum bla bla bla",
-    image: require("../assets/EmojiGotchi/dead.png"),
+    title: "How about some rewards ??",
+    text1: "What will happen when your Emoji Gotchi is Happy ?",
+    text: "Once your Emoji Gotchi is Happy you can get some rewards by having some crackers in below section.",
+    image: require("../assets/EmojiGotchi/intro/intro-3.png"),
     backgroundColor: "#22bcb5",
   },
 ];
@@ -39,7 +43,8 @@ export default class IntroSlider extends React.Component {
     return (
       <View style={styles.slide}>
         <Text style={styles.title}>{item.title}</Text>
-        <Image source={item.image} style={styles.image} />
+        <Image source={item.image} style={[styles.image, { height: 250 }]} />
+        <Text style={styles.text1}>{item.text1}</Text>
         <Text style={styles.text}>{item.text}</Text>
       </View>
     );
@@ -56,6 +61,7 @@ export default class IntroSlider extends React.Component {
           renderItem={this._renderItem}
           data={slides}
           onDone={this._onDone}
+          onSkip={this._onDone}
         />
       );
     }
@@ -74,9 +80,19 @@ const styles = StyleSheet.create({
     height: 200,
     marginVertical: 32,
   },
-  text: {
-    color: "rgba(255, 255, 255, 0.8)",
+  text1: {
+    color: "#FFF",
+    fontWeight: "600",
+    fontSize: 18,
     textAlign: "center",
+    paddingHorizontal: 25,
+    paddingBottom: 20,
+  },
+  text: {
+    color: "#FFF",
+    fontWeight: "400",
+    textAlign: "center",
+    paddingHorizontal: 25,
   },
   title: {
     fontSize: 22,
